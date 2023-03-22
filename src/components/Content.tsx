@@ -1,60 +1,38 @@
 import { Layout, Avatar, Button, List, Skeleton } from 'antd';
 import { useState, useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../hooks/redux-hooks';
+import { getNews } from '../state/news/operations';
+import { useParams } from 'react-router-dom';
+import { selectNews } from '../state/news/selectors';
 const { Content } = Layout;
-
-interface DataType {
-  gender?: string;
-  name: {
-    title?: string;
-    first?: string;
-    last?: string;
-  };
-  email?: string;
-  picture: {
-    large?: string;
-    medium?: string;
-    thumbnail?: string;
-  };
-  nat?: string;
-  loading: boolean;
-}
 
 const count = 3;
 const fakeDataUrl = `https://randomuser.me/api/?results=${count}&inc=name,gender,email,nat,picture&noinfo`;
 
 export const Main = () => {
-  const [initLoading, setInitLoading] = useState(true);
-  const [loading, setLoading] = useState(false);
-  const [data, setData] = useState<DataType[]>([]);
-  const [list, setList] = useState<DataType[]>([]);
+  const dispatch = useAppDispatch();
+  const { code } = useParams();
+  const articles = useAppSelector(selectNews);
+
+  const [initLoading, setInitLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(fakeDataUrl)
-      .then((res) => res.json())
-      .then((res) => {
-        setInitLoading(false);
-        setData(res.results);
-        setList(res.results);
-      });
-  }, []);
+    if (code) {
+      dispatch(getNews(code));
+    }
+    setTimeout(() => {
+      setInitLoading(false);
+      setLoading(false);
+    }, 2000);
+  }, [code, dispatch]);
 
   const onLoadMore = () => {
     setLoading(true);
-    setList(
-      data.concat(
-        [...new Array(count)].map(() => ({
-          loading: true,
-          name: {},
-          picture: {},
-        }))
-      )
-    );
+
     fetch(fakeDataUrl)
       .then((res) => res.json())
       .then((res) => {
-        const newData = data.concat(res.results);
-        setData(newData);
-        setList(newData);
         setLoading(false);
         // Resetting window's offsetTop so as to display react-virtualized demo underfloor.
         // In real scene, you can using public method of react-virtualized:
@@ -91,21 +69,15 @@ export const Main = () => {
           loading={initLoading}
           itemLayout='horizontal'
           loadMore={loadMore}
-          dataSource={list}
+          dataSource={articles}
           renderItem={(item) => (
-            <List.Item
-              actions={[
-                <a key='list-loadmore-edit'>edit</a>,
-                <a key='list-loadmore-more'>more</a>,
-              ]}
-            >
-              <Skeleton avatar title={false} loading={item.loading} active>
+            <List.Item>
+              <Skeleton title={false} loading={loading} active>
                 <List.Item.Meta
-                  avatar={<Avatar src={item.picture.large} />}
-                  title={<a href='https://ant.design'>{item.name?.last}</a>}
-                  description='Ant Design, a design language for background applications, is refined by Ant UED Team'
+                  avatar={item.source?.name ? item.source.name : 'unknown'}
+                  title={item.title}
+                  description={item.publishedAt}
                 />
-                <div>content</div>
               </Skeleton>
             </List.Item>
           )}
