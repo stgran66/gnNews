@@ -1,4 +1,5 @@
 import { Layout, Menu } from 'antd';
+import { NavLink, useNavigate, useParams } from 'react-router-dom';
 
 import type { MenuProps } from 'antd';
 
@@ -17,10 +18,13 @@ const items: MenuProps['items'] = countriesList.map((country) => ({
       alt={country.name}
     ></img>
   ),
-  label: `${country.name}`,
+  label: country.name,
 }));
 
 export const SideMenu = () => {
+  const navigate = useNavigate();
+  const { code } = useParams();
+
   return (
     <Sider
       style={{
@@ -38,18 +42,20 @@ export const SideMenu = () => {
           margin: 16,
         }}
       >
-        <h2 style={{ color: 'lightgray', textAlign: 'center' }}>
-          <span style={{ color: '#D5EB04' }}>gn</span>
-          News
-        </h2>
+        <NavLink to='/'>
+          <h2 style={{ color: 'lightgray', textAlign: 'center' }}>
+            <span style={{ color: '#D5EB04' }}>gn</span>
+            News
+          </h2>
+        </NavLink>
       </div>
       <Menu
         theme='dark'
         mode='inline'
-        defaultSelectedKeys={['pl']}
+        selectedKeys={code ? [code] : []}
         items={items}
-        onClick={() => {
-          console.log('1');
+        onSelect={({ key }) => {
+          navigate(`country/${key}`);
         }}
       />
     </Sider>

@@ -1,25 +1,18 @@
-import { Layout, theme } from 'antd';
-
-import { SideMenu } from './SideMenu';
-
-import { PageHeader } from './Header';
+import { Route, Routes } from 'react-router-dom';
+import { CommonLayout } from './CommonLayout';
+import { NotFoundPage } from './NotFoundPage';
 import { Main } from './Content';
-import { PageFooter } from './Footer';
+import { HomePage } from './HomePage';
 
 function App() {
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
-
   return (
-    <Layout hasSider>
-      <SideMenu />
-      <Layout className='site-layout' style={{ marginLeft: 200 }}>
-        <PageHeader />
-        <Main />
-        <PageFooter />
-      </Layout>
-    </Layout>
+    <Routes>
+      <Route path='/' element={<CommonLayout />}>
+        <Route index element={<HomePage />} />
+        <Route path='country/:code' element={<Main />} />
+      </Route>
+      <Route path='*' element={<NotFoundPage />} />
+    </Routes>
   );
 }
 
