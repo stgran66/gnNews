@@ -1,33 +1,23 @@
-import { Layout } from 'antd';
-import React from 'react';
+import { Layout, Menu } from 'antd';
 
-import {
-  AppstoreOutlined,
-  BarChartOutlined,
-  CloudOutlined,
-  ShopOutlined,
-  TeamOutlined,
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from '@ant-design/icons';
 import type { MenuProps } from 'antd';
+
+import { countriesList } from '../data/countries';
 
 const { Sider } = Layout;
 
-const items: MenuProps['items'] = [
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
-  BarChartOutlined,
-  CloudOutlined,
-  AppstoreOutlined,
-  TeamOutlined,
-  ShopOutlined,
-].map((icon, index) => ({
-  key: String(index + 1),
-  icon: React.createElement(icon),
-  label: `nav ${index + 1}`,
+const items: MenuProps['items'] = countriesList.map((country) => ({
+  key: country.code,
+  icon: (
+    <img
+      width={50}
+      height={30}
+      style={{ objectFit: 'cover' }}
+      src={country.flag}
+      alt={country.name}
+    ></img>
+  ),
+  label: `${country.name}`,
 }));
 
 export const SideMenu = () => {
@@ -46,15 +36,22 @@ export const SideMenu = () => {
         style={{
           height: 32,
           margin: 16,
-          background: 'rgba(255, 255, 255, 0.2)',
+        }}
+      >
+        <h2 style={{ color: 'lightgray', textAlign: 'center' }}>
+          <span style={{ color: '#D5EB04' }}>gn</span>
+          News
+        </h2>
+      </div>
+      <Menu
+        theme='dark'
+        mode='inline'
+        defaultSelectedKeys={['pl']}
+        items={items}
+        onClick={() => {
+          console.log('1');
         }}
       />
-      {/* <Menu
-          theme='dark'
-          mode='inline'
-          defaultSelectedKeys={['4']}
-          items={items}
-        /> */}
     </Sider>
   );
 };
