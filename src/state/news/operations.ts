@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { Article, MoreNewsArg } from './interfaces';
+import { PER_PAGE } from 'data/vars';
 
 const apiKey = '2ae03341cce04535b5d4a80e98cb9520';
 
@@ -11,7 +12,7 @@ export const getNews = createAsyncThunk<
 >('news/getNews', async (country, thunkAPI) => {
   try {
     const response = await axios.get('https://newsapi.org/v2/top-headlines', {
-      params: { country, apiKey, pageSize: 3, page: 1 },
+      params: { country, apiKey, pageSize: PER_PAGE, page: 1 },
     });
     return response.data;
   } catch (err) {
@@ -30,7 +31,7 @@ export const getMoreNews = createAsyncThunk<
 >('news/getMoreNews', async ({ country, page }, thunkAPI) => {
   try {
     const response = await axios.get('https://newsapi.org/v2/top-headlines', {
-      params: { country, apiKey, pageSize: 3, page },
+      params: { country, apiKey, pageSize: PER_PAGE, page },
     });
     return response.data;
   } catch (err) {

@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { CommonLayout } from './CommonLayout';
 import { NotFoundPage } from './NotFoundPage';
-import { Main } from './Content';
+import { Main } from './PageContent/Content';
 import { HomePage } from './HomePage';
 
 function App() {
