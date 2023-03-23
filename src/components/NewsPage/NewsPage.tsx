@@ -1,20 +1,23 @@
-import { Layout, Button } from 'antd';
 import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux-hooks';
-import { getNews, getMoreNews } from '../../state/news/operations';
 import { useParams } from 'react-router-dom';
+import { Button } from 'antd';
+
+import { useAppDispatch, useAppSelector } from 'hooks';
 import {
+  getNews,
+  getMoreNews,
   selectNews,
   selectPage,
   selectIsLoading,
   selectTotal,
-} from '../../state/news/selectors';
-import { selectView } from 'state/display/selectors';
-import { PER_PAGE } from 'data/vars';
+  selectView,
+} from 'state';
+import { PER_PAGE } from 'data';
 import { NewsList } from './NewsList/NewsList';
-const { Content } = Layout;
 
-export const Main = () => {
+import { StyledContent } from './NewsPage.styled';
+
+export const NewsPage = () => {
   const dispatch = useAppDispatch();
   const { code } = useParams();
   const articles = useAppSelector(selectNews);
@@ -37,7 +40,7 @@ export const Main = () => {
   };
 
   return (
-    <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
+    <StyledContent>
       {/* <List
           // className='demo-loadmore-list'
           loading={isLoading}
@@ -58,18 +61,11 @@ export const Main = () => {
           )}
         /> */}
       <NewsList view={currentView} articles={articles} />
-      {!isLoading && currentPage !== totalPages ? (
-        <div
-          style={{
-            textAlign: 'center',
-            marginTop: 12,
-            height: 32,
-            lineHeight: '32px',
-          }}
-        >
+      {!isLoading && currentPage !== totalPages && articles.length > 0 ? (
+        <div className='load-more-wrapp'>
           <Button onClick={onLoadMore}>load more</Button>
         </div>
       ) : null}
-    </Content>
+    </StyledContent>
   );
 };

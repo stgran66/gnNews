@@ -1,4 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+
 import { getMoreNews, getNews } from './operations';
 import { newsState } from './interfaces';
 
@@ -12,7 +13,7 @@ const initialState: newsState = {
   error: null,
 };
 
-export const newsSlice = createSlice({
+const newsSlice = createSlice({
   name: 'news',
   initialState,
   reducers: {},

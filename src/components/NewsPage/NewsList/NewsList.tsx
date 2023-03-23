@@ -1,4 +1,4 @@
-import { Article } from 'state/news/interfaces';
+import { Article } from 'state';
 import { StyledList } from './NewsList.styled';
 
 interface NewsListProps {

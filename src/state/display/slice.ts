@@ -1,12 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ViewState, View } from './interfaces';
 import { PayloadAction } from '@reduxjs/toolkit';
+
+import { ViewState, View } from './interfaces';
 
 const initialState: ViewState = {
   view: 'list',
 };
 
-export const viewSlice = createSlice({
+const viewSlice = createSlice({
   name: 'view',
   initialState,
   reducers: {

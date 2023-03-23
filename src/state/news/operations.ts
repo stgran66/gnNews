@@ -1,7 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+
 import { Article, MoreNewsArg } from './interfaces';
-import { PER_PAGE } from 'data/vars';
+import { PER_PAGE } from 'data';
 
 const apiKey = '2ae03341cce04535b5d4a80e98cb9520';
 

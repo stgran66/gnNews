@@ -1,5 +1,5 @@
-import { Result } from 'antd';
 import { NavLink } from 'react-router-dom';
+import { Result } from 'antd';
 
 export const NotFoundPage = () => {
   return (

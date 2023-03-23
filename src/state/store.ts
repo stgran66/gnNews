@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { newsReducer } from './news/slice';
-import { viewReducer } from './display/slice';
+
+import { newsReducer } from 'state/news/slice';
+import { viewReducer } from 'state/display/slice';
 
 export const store = configureStore({
   reducer: {
