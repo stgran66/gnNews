@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from '../hooks/redux-hooks';
 import { getNews } from '../state/news/operations';
 import { useParams } from 'react-router-dom';
 import { selectNews } from '../state/news/selectors';
+import { selectView } from 'state/display/selectors';
 const { Content } = Layout;
 
 const count = 3;
@@ -13,6 +14,7 @@ export const Main = () => {
   const dispatch = useAppDispatch();
   const { code } = useParams();
   const articles = useAppSelector(selectNews);
+  const currentView = useAppSelector(selectView);
 
   const [initLoading, setInitLoading] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -70,6 +72,20 @@ export const Main = () => {
           itemLayout='horizontal'
           loadMore={loadMore}
           dataSource={articles}
+          grid={
+            currentView === 'grid'
+              ? {
+                  column: 3,
+                  gutter: 20,
+                  xs: 1,
+                  sm: 2,
+                  md: 4,
+                  lg: 4,
+                  xl: 6,
+                  xxl: 3,
+                }
+              : undefined
+          }
           renderItem={(item) => (
             <List.Item>
               <Skeleton title={false} loading={loading} active>
