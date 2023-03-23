@@ -14,10 +14,15 @@ export interface Article {
 
 export interface newsState {
   items: {
-    status: string | null;
     totalResults: number;
+    page: number;
     articles: Article[];
   };
   isLoading: boolean;
   error: null | string;
+}
+
+export interface MoreNewsArg {
+  country: string;
+  page: number;
 }

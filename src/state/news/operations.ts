@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { Article } from './interfaces';
+import { Article, MoreNewsArg } from './interfaces';
 
 const apiKey = '2ae03341cce04535b5d4a80e98cb9520';
 
@@ -8,7 +8,7 @@ export const getNews = createAsyncThunk<
   { status: string; totalResults: number; articles: Article[] },
   string,
   { rejectValue: string | null }
->('news/getNews', async (country: string, thunkAPI) => {
+>('news/getNews', async (country, thunkAPI) => {
   try {
     const response = await axios.get('https://newsapi.org/v2/top-headlines', {
       params: { country, apiKey, pageSize: 3, page: 1 },
@@ -16,10 +16,28 @@ export const getNews = createAsyncThunk<
     return response.data;
   } catch (err) {
     if (axios.isAxiosError(err)) {
-      thunkAPI.rejectWithValue(err.message);
-      return;
+      return thunkAPI.rejectWithValue(err.message);
     }
     console.log(err);
-    thunkAPI.rejectWithValue('unknown error occured');
+    return thunkAPI.rejectWithValue('unknown error occured');
+  }
+});
+
+export const getMoreNews = createAsyncThunk<
+  { status: string; totalResults: number; articles: Article[] },
+  MoreNewsArg,
+  { rejectValue: string | null }
+>('news/getMoreNews', async ({ country, page }, thunkAPI) => {
+  try {
+    const response = await axios.get('https://newsapi.org/v2/top-headlines', {
+      params: { country, apiKey, pageSize: 3, page },
+    });
+    return response.data;
+  } catch (err) {
+    if (axios.isAxiosError(err)) {
+      return thunkAPI.rejectWithValue(err.message);
+    }
+    console.log(err);
+    return thunkAPI.rejectWithValue('unknown error occured');
   }
 });
