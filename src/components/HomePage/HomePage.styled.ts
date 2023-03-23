@@ -44,6 +44,8 @@ export const StyledSpace = styled(Space)`
       gap: 20px;
       align-items: center;
       padding: 5px 0;
+
+      font-size: 20px;
     }
   }
 `;
