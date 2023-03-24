@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Button } from 'antd';
 import { useIntl } from 'react-intl';
 
 import { useAppDispatch, useAppSelector } from 'hooks';
