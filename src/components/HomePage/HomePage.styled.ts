@@ -10,23 +10,26 @@ export const StyledSpace = styled(Space)`
 
   h1 {
     color: lightgray;
-  }
-  .logo-like {
-    color: #d5eb04;
+    font-size: 2.65vw;
   }
 
   .desc-wrapper {
     display: flex;
     justify-content: space-between;
     width: 100%;
+
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
+    }
   }
 
   .logo {
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 154px;
-    height: 154px;
+    width: 10.7vw !important;
+    height: 10.7vw;
     margin-right: auto;
 
     background-color: #001529;
@@ -34,9 +37,9 @@ export const StyledSpace = styled(Space)`
     filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
 
     color: lightgray;
-    font-size: 38px;
+    font-size: 2.65vw;
     font-family: Delicious Handrawn;
-    letter-spacing: 1px;
+    letter-spacing: 0.07vw;
 
     .logo-light {
       color: rgb(213, 235, 4);
@@ -51,7 +54,7 @@ export const StyledSpace = styled(Space)`
       align-items: center;
       padding: 5px 0;
 
-      font-size: 20px;
+      font-size: 1.4vw;
     }
   }
 `;

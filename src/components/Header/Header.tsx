@@ -36,9 +36,9 @@ export const Header = () => {
           }}
         >
           {currentView === 'grid' ? (
-            <BsGrid3X3Gap size='20' />
+            <BsGrid3X3Gap size='1.56vw' />
           ) : (
-            <BsListColumnsReverse size='20' />
+            <BsListColumnsReverse size='1.56vw' />
           )}
         </StyledButton>
       )}

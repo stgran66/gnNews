@@ -16,7 +16,7 @@ import {
 import { PER_PAGE } from 'data';
 import { NewsList } from './NewsList/NewsList';
 
-import { StyledContent } from './NewsPage.styled';
+import { StyledContent, StyledButton } from './NewsPage.styled';
 
 export const NewsPage = () => {
   const dispatch = useAppDispatch();
@@ -46,12 +46,12 @@ export const NewsPage = () => {
       <NewsList view={currentView} articles={articles} />
       {!isLoading && currentPage !== totalPages && articles.length > 0 ? (
         <div className='load-more-wrapp'>
-          <Button onClick={onLoadMore}>
+          <StyledButton onClick={onLoadMore}>
             {intl.formatMessage({
               id: 'load_more_button',
               defaultMessage: 'load more',
-            })}{' '}
-          </Button>
+            })}
+          </StyledButton>
         </div>
       ) : null}
     </StyledContent>

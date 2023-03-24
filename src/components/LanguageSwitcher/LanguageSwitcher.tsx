@@ -1,15 +1,15 @@
-import { Switch } from 'antd';
 import { useIntl } from 'react-intl';
 
 import { useAppDispatch } from 'hooks';
 import { toggleLang } from 'state';
+import { StyledSwitcher } from './LanguageSwitcher.styled';
 
 export const LanguageSwitcher = () => {
   const intl = useIntl();
   const dispatch = useAppDispatch();
 
   return (
-    <Switch
+    <StyledSwitcher
       checkedChildren={
         <img
           style={{ width: '18px' }}

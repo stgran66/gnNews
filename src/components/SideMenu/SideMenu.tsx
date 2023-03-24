@@ -25,7 +25,7 @@ export const SideMenu = () => {
   }));
 
   return (
-    <StyledSider style={{}}>
+    <StyledSider width={'14vw'}>
       <NavLink to='/'>
         <h2>
           <span>gn</span>

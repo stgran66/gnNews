@@ -22,6 +22,18 @@ export const NewsArticle: React.FC<NewsArticleProps> = ({ article, view }) => {
     setIsModalOpen(false);
   };
 
+  const localDateTime = article.publishedAt
+    ? `${new Date(
+        Date.parse(article.publishedAt)
+      ).toLocaleDateString()} ${new Date(
+        Date.parse(article.publishedAt)
+      ).toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+      })}`
+    : 'unknown';
+
   return (
     <li onClick={showModal}>
       <p className='article-source'>
@@ -39,7 +51,7 @@ export const NewsArticle: React.FC<NewsArticleProps> = ({ article, view }) => {
       )}
       <div>
         <p className='article-title'>{article.title}</p>
-        <p className='article-date'>{article.publishedAt}</p>
+        <p className='article-date'>{localDateTime}</p>
         <StyledArticleModal
           title={article.title}
           open={isModalOpen}
@@ -53,7 +65,7 @@ export const NewsArticle: React.FC<NewsArticleProps> = ({ article, view }) => {
                   defaultMessage: 'Go to source',
                 })}
               </StyledLink>
-              <p className='article-date'>{article.publishedAt}</p>
+              <p className='article-date'>{localDateTime}</p>
             </div>
           }
         >

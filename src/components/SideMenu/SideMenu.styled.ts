@@ -16,7 +16,7 @@ export const StyledSider = styled(Sider)`
 
   a {
     display: block;
-    padding: 19px 10px;
+    padding: 1.32vw 0.7vw;
 
     h2 {
       margin: 0;
@@ -24,15 +24,35 @@ export const StyledSider = styled(Sider)`
       text-align: center;
       color: lightgray;
 
+      font-size: 1.8vw;
+
+      @media screen and (max-width: 480px) {
+        font-size: 2.8vw;
+      }
+
       span {
         color: #d5eb04;
       }
     }
   }
+
+  .ant-menu-title-content {
+    font-size: 1.11vw;
+  }
+
+  .ant-menu-item {
+    margin-bottom: 0.5vw;
+    padding: 0 1.25vw 0 1.875vw !important;
+  }
 `;
 
 export const StyledImg = styled('img')`
-  width: 50px;
-  height: 30px;
+  width: 3.47vw;
+  height: 2.08vw;
   object-fit: cover;
+
+  @media screen and (max-width: 479px) {
+    width: 80%;
+    height: 4vw;
+  }
 `;

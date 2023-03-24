@@ -5,17 +5,17 @@ import { SideMenu } from 'components/SideMenu';
 import { Header } from 'components/Header';
 import { Footer } from 'components/Footer';
 
-import { StyledLayout } from './CommmonLayout.styled';
+import { StyledLayout, StyledPageLayout } from './CommmonLayout.styled';
 
 export const CommonLayout = () => {
   return (
-    <Layout hasSider>
+    <StyledPageLayout hasSider>
       <SideMenu />
       <StyledLayout>
         <Header />
         <Outlet />
         <Footer />
       </StyledLayout>
-    </Layout>
+    </StyledPageLayout>
   );
 };

@@ -28,6 +28,14 @@ export const StyledList = styled.ul<NewsListProps>`
 
     transition: box-shadow 0.3s;
 
+    @media screen and (max-width: 767px) {
+      flex-basis: calc((100% - 30px) / 2);
+    }
+
+    @media screen and (max-width: 480px) {
+      flex-basis: calc((100% - 20px));
+    }
+
     :hover {
       box-shadow: 0 0 11px rgba(222, 222, 222, 0.2);
     }
