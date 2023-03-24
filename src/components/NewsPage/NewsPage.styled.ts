@@ -7,6 +7,9 @@ export const StyledContent = styled(Content)`
   padding: 24px 16px 24px 16px;
   overflow: initial;
 
+  background-color: #384d54;
+  color: lightgray;
+
   .load-more-wrapp {
     text-align: center;
     margin-top: 12px;

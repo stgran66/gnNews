@@ -22,10 +22,23 @@ export const StyledList = styled.ul<NewsListProps>`
     padding: 10px;
     flex-basis: calc((100% - 40px) / 3);
 
-    border: 1px solid black;
+    border: 1px solid #001529;
+    border-radius: 10px;
     text-align: ${(props) => (props.view === 'list' ? 'right' : 'left')};
+
+    transition: box-shadow 0.3s;
+
+    :hover {
+      box-shadow: 0 0 11px rgba(222, 222, 222, 0.2);
+    }
+
     :nth-child(2n) {
       background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    :not(:last-child) {
+      margin-bottom: ${(props) => props.view === 'list' && '10px'};
+      cursor: pointer;
     }
 
     div {

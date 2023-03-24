@@ -5,6 +5,12 @@ export const StyledSpace = styled(Space)`
   flex-grow: 1;
   padding: 40px;
 
+  background-color: #384d54;
+  color: lightgray;
+
+  h1 {
+    color: lightgray;
+  }
   .logo-like {
     color: #d5eb04;
   }
