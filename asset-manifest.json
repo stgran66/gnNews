@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/gnNews/static/js/main.62ccc09e.js",
+    "main.js": "/gnNews/static/js/main.dad5b40e.js",
     "index.html": "/gnNews/index.html",
-    "main.62ccc09e.js.map": "/gnNews/static/js/main.62ccc09e.js.map"
+    "main.dad5b40e.js.map": "/gnNews/static/js/main.dad5b40e.js.map"
   },
   "entrypoints": [
-    "static/js/main.62ccc09e.js"
+    "static/js/main.dad5b40e.js"
   ]
 }
