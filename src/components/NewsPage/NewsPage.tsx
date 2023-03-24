@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Button } from 'antd';
+import { useIntl } from 'react-intl';
 
 import { useAppDispatch, useAppSelector } from 'hooks';
 import {
@@ -26,6 +27,7 @@ export const NewsPage = () => {
   const isLoading = useAppSelector(selectIsLoading);
   const totalNews = useAppSelector(selectTotal);
   const totalPages = Math.ceil(totalNews / PER_PAGE);
+  const intl = useIntl();
 
   useEffect(() => {
     if (code) {
@@ -41,29 +43,15 @@ export const NewsPage = () => {
 
   return (
     <StyledContent>
-      {/* <List
-          // className='demo-loadmore-list'
-          loading={isLoading}
-          itemLayout='vertical'
-          loadMore={loadMore}
-          dataSource={articles}
-          view={currentView}
-          renderItem={(item): React.ReactNode => (
-            <StyledListItem>
-              <Skeleton title={false} loading={isLoading} active>
-                <List.Item.Meta
-                  avatar={item.source?.name ? item.source.name : 'unknown'}
-                  title={item.title}
-                  description={item.publishedAt}
-                />
-              </Skeleton>
-            </StyledListItem>
-          )}
-        /> */}
       <NewsList view={currentView} articles={articles} />
       {!isLoading && currentPage !== totalPages && articles.length > 0 ? (
         <div className='load-more-wrapp'>
-          <Button onClick={onLoadMore}>load more</Button>
+          <Button onClick={onLoadMore}>
+            {intl.formatMessage({
+              id: 'load_more_button',
+              defaultMessage: 'load more',
+            })}{' '}
+          </Button>
         </div>
       ) : null}
     </StyledContent>

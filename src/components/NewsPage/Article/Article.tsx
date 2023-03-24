@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useIntl } from 'react-intl';
 
 import { Article, View } from 'state';
 import { StyledArticleModal, StyledLink } from './Article.styled';
@@ -10,6 +11,7 @@ interface NewsArticleProps {
 
 export const NewsArticle: React.FC<NewsArticleProps> = ({ article, view }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const intl = useIntl();
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -46,7 +48,10 @@ export const NewsArticle: React.FC<NewsArticleProps> = ({ article, view }) => {
           footer={
             <div className='footer-wrapper' style={{}}>
               <StyledLink to={article.url!} target='_blank'>
-                Go to source
+                {intl.formatMessage({
+                  id: 'source_link',
+                  defaultMessage: 'Go to source',
+                })}
               </StyledLink>
               <p className='article-date'>{article.publishedAt}</p>
             </div>
@@ -67,7 +72,12 @@ export const NewsArticle: React.FC<NewsArticleProps> = ({ article, view }) => {
 
           <p className='article-content'>{article.content}</p>
           <p className='article-author'>
-            {article.author ? `Author: ${article.author}` : 'Author: unknown'}
+            {article.author
+              ? `${intl.formatMessage({
+                  id: 'author',
+                  defaultMessage: 'Author',
+                })}: ${article.author}`
+              : 'Author: unknown'}
           </p>
         </StyledArticleModal>
       </div>

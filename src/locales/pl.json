@@ -1,0 +1,24 @@
+{
+  "greeting": "Witamy w gnNews, Twoim głównym źródle najświeższych wiadomości z całego świata.",
+
+  "first_pro": "Przyciąga docelowych odbiorców zainteresowanych wiadomościami z konkretnych regionów.",
+  "second_pro": "Zapewnia zróżnicowane pokrycie globalnych wydarzeń.",
+  "third_pro": "Potencjalnie tworzy lojalnych i zaangażowanych czytelników.",
+  "fourth_pro": "Zapewnia łatwy w nawigacji interfejs z krajowo-specyficznymi kategoriami.",
+  "fifth_pro": "Zapewnia aktualne wiadomości i analizy dla użytkowników zainteresowanych bieżącymi wydarzeniami.",
+  "popup_button": "Wcisnij mnie",
+  "footer_check": "Odwiedź stronę wiadomości",
+  "pl": "Polska",
+  "ua": "Ukraina",
+  "us": "Stany Zjednoczone",
+  "gb": "Wielka Brytania",
+  "fr": "Francja",
+  "de": "Niemcy",
+  "it": "Włochy",
+  "lt": "Litwa",
+  "lv": "Łotwa",
+  "load_more_button": "załaduj więcej",
+  "footer_news_count": "Załadowano artykułów",
+  "author": "Autor",
+  "source_link": "idź do źródła"
+}

@@ -1,0 +1,24 @@
+{
+  "greeting": "Welcome to gn News, your go-to source for up-to-date news from around the world.",
+
+  "first_pro": "Appeals to targeted audiences interested in news from particular regions.",
+  "second_pro": "Provides diverse coverage on global events.",
+  "third_pro": "Potentially creates a loyal and engaged readership.",
+  "fourth_pro": "Provides an easy-to-navigate interface with country-specific categories.",
+  "fifth_pro": "Provides up-to-date news and analysis for users interested in current events.",
+  "popup_button": "Popup",
+  "footer_check": "Check our news",
+  "pl": "Poland",
+  "ua": "Ukraine",
+  "us": "USA",
+  "gb": "United Kingdom",
+  "fr": "France",
+  "de": "Germany",
+  "it": "Italy",
+  "lt": "Lithuania",
+  "lv": "Latvia",
+  "load_more_button": "load more",
+  "footer_news_count": "News loaded",
+  "author": "Author",
+  "source_link": "go to source"
+}

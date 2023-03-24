@@ -2,10 +2,12 @@ import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Modal } from 'antd';
 import { BsGrid3X3Gap, BsListColumnsReverse } from 'react-icons/bs';
+import { useIntl } from 'react-intl';
 
 import { selectView } from 'state';
 import { toggleView } from 'state';
 import { useAppDispatch, useAppSelector } from 'hooks';
+import { LanguageSwitcher } from 'components/LanguageSwitcher/LanguageSwitcher';
 
 import { StyledHeader, StyledButton } from './Header.styled';
 
@@ -15,6 +17,7 @@ export const Header = () => {
   const isOnNewsPage = location.pathname.includes('country');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const currentView = useAppSelector(selectView);
+  const intl = useIntl();
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -39,8 +42,13 @@ export const Header = () => {
           )}
         </StyledButton>
       )}
-      <StyledButton onClick={showModal}>Popup</StyledButton>
-      <StyledButton>Change language</StyledButton>
+      <StyledButton onClick={showModal}>
+        {intl.formatMessage({
+          id: 'popup_button',
+          defaultMessage: 'Popup',
+        })}
+      </StyledButton>
+      <LanguageSwitcher />
       <Modal
         title='about project'
         open={isModalOpen}
