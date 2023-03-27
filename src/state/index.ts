@@ -16,3 +16,4 @@ export { selectPage } from './news/selectors';
 export { selectIsLoading } from './news/selectors';
 export { selectTotal } from './news/selectors';
 export { selectLang } from './lang/selectors';
+export { selectError } from './news/selectors';

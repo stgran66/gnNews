@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Modal } from 'antd';
 import { BsGrid3X3Gap, BsListColumnsReverse } from 'react-icons/bs';
 import { useIntl } from 'react-intl';
 
@@ -9,7 +8,7 @@ import { toggleView } from 'state';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { LanguageSwitcher } from 'components/LanguageSwitcher/LanguageSwitcher';
 
-import { StyledHeader, StyledButton } from './Header.styled';
+import { StyledHeader, StyledButton, StyledModal } from './Header.styled';
 
 export const Header = () => {
   const dispatch = useAppDispatch();
@@ -45,23 +44,26 @@ export const Header = () => {
       <StyledButton onClick={showModal}>
         {intl.formatMessage({
           id: 'popup_button',
-          defaultMessage: 'Popup',
+          defaultMessage: 'Click me',
         })}
       </StyledButton>
       <LanguageSwitcher />
-      <Modal
-        title='about project'
+      <StyledModal
+        title={intl.formatMessage({
+          id: 'project_sumup_title',
+          defaultMessage: 'about gnNews',
+        })}
         open={isModalOpen}
         onCancel={hideModal}
         closable
         footer={null}
       >
         <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo sit
-          delectus maiores neque cum excepturi architecto facilis vel dolore
-          modi.
+          {intl.formatMessage({
+            id: 'project_sumup',
+          })}
         </p>
-      </Modal>
+      </StyledModal>
     </StyledHeader>
   );
 };

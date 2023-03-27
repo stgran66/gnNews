@@ -11,26 +11,26 @@ export const StyledSpace = styled(Space)`
   h1 {
     color: lightgray;
     font-size: 2.65vw;
+
+    @media screen and (max-width: 479px) {
+      font-size: 18px;
+    }
   }
 
   .desc-wrapper {
-    display: flex;
-    justify-content: space-between;
     width: 100%;
-
+    display: flex;
     @media screen and (max-width: 767px) {
       flex-direction: column;
     }
   }
 
   .logo {
-    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 10.7vw !important;
     height: 10.7vw;
-    margin-right: auto;
 
     background-color: #001529;
     border-radius: 50%;
@@ -40,6 +40,20 @@ export const StyledSpace = styled(Space)`
     font-size: 2.65vw;
     font-family: Delicious Handrawn;
     letter-spacing: 0.07vw;
+
+    @media screen and (max-width: 479px) {
+      width: 100px !important;
+      height: 100px;
+
+      font-size: 30px;
+    }
+
+    @media screen and (max-width: 767px) {
+      width: 150px !important;
+      height: 150px;
+
+      font-size: 40px;
+    }
 
     .logo-light {
       color: rgb(213, 235, 4);
@@ -55,6 +69,14 @@ export const StyledSpace = styled(Space)`
       padding: 5px 0;
 
       font-size: 1.4vw;
+
+      @media screen and (max-width: 479px) {
+        font-size: 14px;
+      }
+
+      @media screen and (max-width: 767px) {
+        font-size: 16px;
+      }
     }
   }
 `;

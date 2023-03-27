@@ -21,7 +21,7 @@ export const StyledArticleModal = styled(Modal)`
     margin: 0;
     padding: 5px 10px;
 
-    background-color: #001529;
+    background-color: #002334;
     color: lightgray;
     border-top-right-radius: 40px;
     border-bottom-right-radius: 40px;

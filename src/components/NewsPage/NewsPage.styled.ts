@@ -7,9 +7,14 @@ const { Content } = Layout;
 export const StyledContent = styled(Content)`
   padding: 24px 16px 24px 16px;
   overflow: initial;
+  text-align: center;
 
   background-color: #384d54;
   color: lightgray;
+
+  h2 {
+    text-align: center;
+  }
 
   .load-more-wrapp {
     text-align: center;

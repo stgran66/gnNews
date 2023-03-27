@@ -18,7 +18,7 @@ export const getNews = createAsyncThunk<
     return response.data;
   } catch (err) {
     if (axios.isAxiosError(err)) {
-      return thunkAPI.rejectWithValue(err.message);
+      return thunkAPI.rejectWithValue(err.response?.data.message);
     }
     console.log(err);
     return thunkAPI.rejectWithValue('unknown error occured');

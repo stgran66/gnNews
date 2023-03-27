@@ -4,7 +4,6 @@ import { useIntl } from 'react-intl';
 
 import { useAppSelector } from 'hooks';
 import { selectNews } from 'state';
-
 import { StyledFooter } from './Footer.styled';
 
 export const Footer = () => {

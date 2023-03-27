@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useIntl } from 'react-intl';
+import { Spin } from 'antd';
 
 import { useAppDispatch, useAppSelector } from 'hooks';
 import {
@@ -11,6 +12,7 @@ import {
   selectIsLoading,
   selectTotal,
   selectView,
+  selectError,
 } from 'state';
 import { PER_PAGE } from 'data';
 import { NewsList } from './NewsList/NewsList';
@@ -27,6 +29,7 @@ export const NewsPage = () => {
   const totalNews = useAppSelector(selectTotal);
   const totalPages = Math.ceil(totalNews / PER_PAGE);
   const intl = useIntl();
+  const error = useAppSelector(selectError);
 
   useEffect(() => {
     if (code) {
@@ -42,8 +45,20 @@ export const NewsPage = () => {
 
   return (
     <StyledContent>
-      <NewsList view={currentView} articles={articles} />
-      {!isLoading && currentPage !== totalPages && articles.length > 0 ? (
+      {isLoading && <Spin size='large' />}
+      {articles.length === 0 && !error && !isLoading && (
+        <h2>
+          {intl.formatMessage({
+            id: 'no_news',
+            defaultMessage: 'No news found',
+          })}
+        </h2>
+      )}
+      {error && !isLoading && <h2>{error}</h2>}
+      {!error && !isLoading && (
+        <NewsList view={currentView} articles={articles} />
+      )}
+      {!isLoading && currentPage !== totalPages && articles.length > 0 && (
         <div className='load-more-wrapp'>
           <StyledButton onClick={onLoadMore}>
             {intl.formatMessage({
@@ -52,7 +67,7 @@ export const NewsPage = () => {
             })}
           </StyledButton>
         </div>
-      ) : null}
+      )}
     </StyledContent>
   );
 };

@@ -20,5 +20,8 @@
   "load_more_button": "załaduj więcej",
   "footer_news_count": "Załadowano artykułów",
   "author": "Autor",
-  "source_link": "idź do źródła"
+  "source_link": "idź do źródła",
+  "no_news": "Nie znaleziono żadnych wiadomości",
+  "project_sumup_title": "O gnNews",
+  "project_sumup": "Ukończyłem projekt o nazwie gnNews, który umożliwia użytkownikom dostęp do artykułów z różnych krajów. Choć projekt nie był szczególnie trudny, wymagał ode mnie nauki nowych technologii, takich jak Ant Design i Format.js, których wcześniej nie używałem. Na początku zawiłości składni Ant Design sprawiały mi trudność, ponieważ byłem bardziej zaznajomiony z MUI, ale po poświęceniu czasu na pracę z nią, udało mi się ją zrozumieć i efektywnie z niej korzystać. Podobnie było z Format.js, który był dla mnie nowością, ale po przeprowadzeniu badań i eksperymentów udało mi się z powodzeniem zaimplementować lokalizację. Ogólnie rzecz biorąc, praca nad gnNews była cennym doświadczeniem, ponieważ pozwoliła mi rozwijać swoje umiejętności i pracować z nowymi technologiami. Choć Ant Design i Format.js nie były wymagane dla tego projektu, zdecydowałem się ich użyć, ponieważ są one technologiami używanymi w GnStudio i chciałem zdobyć doświadczenie w pracy z nimi."
 }
