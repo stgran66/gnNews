@@ -1,5 +1,5 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { Article, MoreNewsArg } from './interfaces';
 import { PER_PAGE } from 'data';

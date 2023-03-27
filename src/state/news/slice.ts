@@ -53,10 +53,6 @@ const newsSlice = createSlice({
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(getMoreNews.pending, (state) => {
-        state.isLoading = true;
-        state.error = null;
-      })
       .addMatcher(
         isAnyOf(getNews.rejected, getMoreNews.rejected),
         (state, action) => {

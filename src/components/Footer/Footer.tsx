@@ -8,7 +8,7 @@ import { StyledFooter } from './Footer.styled';
 
 export const Footer = () => {
   const location = useLocation();
-  const isOnNewsPage = location.pathname.includes('country');
+  const isOnNewsPage = location.pathname?.includes('country');
   const intl = useIntl();
 
   const articles = useAppSelector(selectNews);
